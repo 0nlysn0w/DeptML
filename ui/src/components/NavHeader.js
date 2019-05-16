@@ -1,9 +1,21 @@
 import React from 'react';
 
-const NavHeader = () => {
+import { Box, Text } from 'grommet';
+
+export const NavHeader = () => {
     return (
-        <p>NavHeader</p>
+        <Box
+            gridArea="header"
+            direction="row"
+            align="center"
+            justify="between"
+            pad={{ horizontal: "medium", vertical: "small" }}
+            background="dark-2"
+        >
+
+            <Text size="large">Title</Text>
+
+            <Text>my@email</Text>
+        </Box>
     );
 }
-
-export default NavHeader;

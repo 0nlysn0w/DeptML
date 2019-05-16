@@ -1,12 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import LoanItems from './pages/LoadItems';
-import NavHeader from './components/NavHeader';
-
-import GridPage from './pages/GridPage';
-
-import { Grommet, Grid } from 'grommet';
+import { Grommet } from 'grommet';
+import LoanItems from './pages/LoanItems';
+import { MainGrid, NavHeader, Sidebar } from './components';
 
 class App extends React.Component {
   render() {
@@ -25,10 +22,15 @@ class App extends React.Component {
 
     return (
       <Grommet theme={theme} full>
-        <Router>
-          {/* <NavHeader /> */}
-          <Route exact path={'/'} component={GridPage}></Route>
-        </Router>
+        <MainGrid>
+          <Router>
+            <NavHeader></NavHeader>
+            <Sidebar></Sidebar>
+
+            <Route exact path={'/'} component={LoanItems}></Route>
+
+          </Router>
+        </MainGrid>
       </Grommet>
     );
   }
