@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Link } from "react-router-dom";
+
 import { Box, Text } from 'grommet';
 
 export const NavHeader = () => {
@@ -8,14 +10,20 @@ export const NavHeader = () => {
             gridArea="header"
             direction="row"
             align="center"
-            justify="between"
+            justify="center"
             pad={{ horizontal: "medium", vertical: "small" }}
             background="dark-2"
         >
+            <Link to="/">
 
-            <Text size="large">Title</Text>
+            <Text size="large">DeptML</Text>
+            </Link>
 
-            <Text>my@email</Text>
+            <Link to="/loanitems">
+                <Text size="large">Loan Items</Text>
+            </Link>
+
+            <Text>UserName</Text>
         </Box>
     );
 }

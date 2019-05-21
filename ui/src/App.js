@@ -2,8 +2,9 @@ import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import { Grommet } from 'grommet';
-import LoanItems from './pages/LoanItems';
 import { MainGrid, NavHeader, Sidebar } from './components';
+import LoanItems from './pages/LoanItems';
+import LoginPage from './pages/LoginPage';
 
 class App extends React.Component {
   render() {
@@ -25,9 +26,12 @@ class App extends React.Component {
         <MainGrid>
           <Router>
             <NavHeader></NavHeader>
+
+            {/* if logged in */}
             <Sidebar></Sidebar>
 
-            <Route exact path={'/'} component={LoanItems}></Route>
+            <Route exact path={'/'} component={LoginPage}></Route>
+            <Route exact path={'/loanitems'} component={LoanItems}></Route>
 
           </Router>
         </MainGrid>
