@@ -1,5 +1,6 @@
 from flask import request, url_for
 from flask_api import FlaskAPI, status, exceptions
+import csv, json
 
 app = FlaskAPI(__name__)
 
@@ -10,12 +11,50 @@ notes = {
     2: 'paint the door',
 }
 
+members = {
+    0: 'Walid',
+    1: 'Hicham',
+    2: 'Bas',
+    3: 'Lorenzo',
+    4: 'Joost',
+}
+
+rows = []
+
+def products():
+    with open('../resources/products.csv', 'rU') as csvFile:
+        reader = csv.DictReader(csvFile, fieldnames=('ID','Brand','CPUrating','RAM','GPUrating'))
+        # fields = reader.next()
+        # for row in reader:
+        #     rows.append(row)
+
+        for row in reader:
+            data = json.dumps(row)
+
+            
+        print(data)
+
+
+    csvFile.close()
+
+@app.route("/products", methods=['GET'])
+def product_list():
+    return products()
+
+def member_repr(key):
+    return {
+        'name': members[key]
+    }
+
+@app.route("/members", methods=['GET'])
+def member_list():
+    return [member_repr(idx) for idx in sorted(members.keys())]
+
 def note_repr(key):
     return {
         'url': request.host_url.rstrip('/') + url_for('notes_detail', key=key),
         'text': notes[key]
     }
-
 
 @app.route("/", methods=['GET', 'POST'])
 def notes_list():
