@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 
-import { Box, RadioButton, Text, Image, Form } from 'grommet';
+import { Box, RadioButton, Text, Image, Button } from 'grommet';
 
 
 import * as cookie from '../helpers/cookie.js';
@@ -18,41 +18,54 @@ class LoanItems extends Component {
 	// 	cookie.set('username', '[]')
 	// }
 
+	// function ActionLink(){
+	// 	function handleClick(e){
+	// 		e.preventDefault();
+	// 		console.log('The link is clickable.');
+	// 	}
+	// }
+
 
 	render() {
 		return (
 			<Box
-			direction="column"
+			direction="row"
 			align="start"
 			justify="between"
 			pad={{ horizontal: "medium", vertical: "small" }}
-			background="dark-4"
+			gap="small"
+			background="light-2"
 		>
+			{/* Firstbox */}
 			<Box
 			direction="column"
 			align="start"
-			justify="between"
+			justify="start"
 			width="medium"
-			pad={{ horizontal: "medium", vertical: "small" }}
-			background="light-2">
-			<Box
-				width="medium"
-				height="medium"
-			>
-			<Image
-			  fit="contain"
-			  src="//v2.grommet.io/assets/Wilderpeople_Ricky.jpg"
-			/>
+			pad={{ horizontal: "small", vertical: "small" }}
+			background="dark-2">
+				<Box
+					width="medium"
+					height="small"
+				>
+					<Image
+					fit="cover"
+					src="https://assets.razerzone.com/eeimages/products/26727/razer-blade-hero-laptop-v3.png"
+					/>
+				</Box>
+
+				<Text>Item name</Text>
+				<Text
+					size="small"
+				>
+					Match rating
+				</Text>
+				<Button
+					label="Click"
+					onClick={()=>{}}
+				/>
 			</Box>
-			<Text>Item name</Text>
-
-		  </Box>
-			
 				<Text>Please click <Link to="/">here</Link> to select a user</Text>
-			
-			
-
-
 		  </Box>
 
 		)
