@@ -22,30 +22,37 @@ class LoanItems extends Component {
 	render() {
 		return (
 			<Box
-			direction="row"
-			align="center"
+			direction="column"
+			align="start"
 			justify="between"
 			pad={{ horizontal: "medium", vertical: "small" }}
-			background="blue"
+			background="dark-4"
 		>
-			<Text>Please click <Link to="/">here</Link> to select a user</Text>
-			
-			
-
 			<Box
-			direction="row"
-			align="center"
+			direction="column"
+			align="start"
 			justify="between"
+			width="medium"
 			pad={{ horizontal: "medium", vertical: "small" }}
 			background="light-2">
-
+			<Box
+				width="medium"
+				height="medium"
+			>
 			<Image
-			  fit="cover"
+			  fit="contain"
 			  src="//v2.grommet.io/assets/Wilderpeople_Ricky.jpg"
 			/>
+			</Box>
 			<Text>Item name</Text>
 
 		  </Box>
+			
+				<Text>Please click <Link to="/">here</Link> to select a user</Text>
+			
+			
+
+
 		  </Box>
 
 		)
