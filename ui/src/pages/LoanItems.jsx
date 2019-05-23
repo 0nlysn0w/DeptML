@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 
-import { Box, RadioButton, Text, Image, Button } from 'grommet';
+import { Box, Text, Image, Button } from 'grommet';
 
 
 import * as cookie from '../helpers/cookie.js';
@@ -36,7 +36,7 @@ class LoanItems extends Component {
 			gap="small"
 			background="light-2"
 		>
-			{/* Firstbox */}
+			{/* ItemCard */}
 			<Box
 			direction="column"
 			align="start"
@@ -62,7 +62,7 @@ class LoanItems extends Component {
 				</Text>
 				<Button
 					label="Click"
-					onClick={()=>{}}
+					onClick={()=>alert('Doesn\'t work yet')}
 				/>
 			</Box>
 				<Text>Please click <Link to="/">here</Link> to select a user</Text>

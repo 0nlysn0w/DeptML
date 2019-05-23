@@ -5,6 +5,7 @@ import { Grommet } from 'grommet';
 import { MainGrid, NavHeader, Sidebar } from './components';
 import LoanItems from './pages/LoanItems';
 import LoginPage from './pages/LoginPage';
+import ItemDescription from './pages/ItemDescription';
 
 class App extends React.Component {
   render() {
@@ -32,6 +33,8 @@ class App extends React.Component {
 
             <Route exact path={'/'} component={LoginPage}></Route>
             <Route exact path={'/loanitems'} component={LoanItems}></Route>
+            {/* For testing the UI */}
+            <Route exact path={'/itemdescription'} component={ItemDescription}></Route>
 
           </Router>
         </MainGrid>
