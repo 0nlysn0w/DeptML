@@ -19,23 +19,10 @@ members = {
     4: 'Joost',
 }
 
-rows = []
-
 def products():
-    with open('../resources/products.csv', 'rU') as csvFile:
-        reader = csv.DictReader(csvFile, fieldnames=('ID','Brand','CPUrating','RAM','GPUrating'))
-        # fields = reader.next()
-        # for row in reader:
-        #     rows.append(row)
-
-        for row in reader:
-            data = json.dumps(row)
-
-            
-        print(data)
-
-
-    csvFile.close()
+    with open('../resources/products.json', 'r') as theFile:
+        data = theFile.read()
+        return data
 
 @app.route("/products", methods=['GET'])
 def product_list():
