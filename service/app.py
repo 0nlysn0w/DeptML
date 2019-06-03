@@ -1,9 +1,11 @@
-from flask import request, url_for
+from flask import request, url_for, jsonify
 from flask_api import FlaskAPI, status, exceptions
 import csv, json
+import pandas as pd
+
+
 
 app = FlaskAPI(__name__)
-
 
 notes = {
     0: 'do the shopping',
@@ -20,9 +22,21 @@ members = {
 }
 
 def products():
-    with open('../resources/products.json', 'r') as theFile:
-        data = theFile.read()
-        return data
+    # with open('../resources/products.json', 'r') as theFile:
+    #     data = theFile.read()
+    #     return { data } 
+    f = open('../resources/Dept_products3.csv', 'r' ) 
+    reader = csv.DictReader( f, fieldnames = ( "ID","Brand","CPUrating","RAM","GPUrating"))  
+    out = json.dumps( [ row for row in reader ] ) 
+
+    response = json.loads(out) 
+    return response
+    # print (out)n
+
+    # df = pd.read_csv('../resources/Dept_products3.csv')
+    # any operations on dataframe df
+    # return df.to_json('file.json')
+   
 
 @app.route("/products", methods=['GET'])
 def product_list():
