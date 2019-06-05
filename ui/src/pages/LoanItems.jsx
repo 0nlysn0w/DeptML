@@ -32,16 +32,15 @@ class LoanItems extends Component {
   // 	}
   // }
 
-  // componentDidMount() {
-  // 	fetch("C:/repositories/DeptML-service/resources/products.csv")
-  // 		.then(res => res.json())
-  // 		.then(json => {
-  // 			this.setState({
-  // 				products: json
-  // 			})
-  // 		});
-  // 	console.log(this.state.products)
-  // }
+  componentDidMount() {
+  	fetch("http://localhost:5000/products")
+  		.then(res => res.json())
+  		.then(json => {
+  			this.setState({
+  				products: json
+  			})
+  		});
+  }
 
   render() {
     return (
@@ -72,8 +71,8 @@ class LoanItems extends Component {
           }}
           gap="small"
         >
-          {products.map(product => (
-            <Itemcard />
+          {this.state.products.map(product => (
+            <Itemcard product={product} />
           ))}
         </Grid>
       </Box>
@@ -81,7 +80,7 @@ class LoanItems extends Component {
   }
 }
 
-const Itemcard = () => {
+const Itemcard = ({ product }) => {
   return (
     <Box
       direction="column"
@@ -100,7 +99,7 @@ const Itemcard = () => {
         />
       </Box>
 
-      <Text size="flex">Item name</Text>
+      <Text size="flex">Brand no. {product.Brand}</Text>
       <Text size="xsmall">Match rating</Text>
       <Button
         label="Click"
