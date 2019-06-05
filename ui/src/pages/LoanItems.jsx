@@ -1,9 +1,8 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
 
-import { Box, Text, Image, Button, Grid } from "grommet";
+import { Box, Text, Image, Button, Grid } from 'grommet';
 
-import * as cookie from "../helpers/cookie.js";
+import { brands } from '../helpers';
 
 class LoanItems extends Component {
   constructor(props) {
@@ -11,6 +10,7 @@ class LoanItems extends Component {
     this.state = {
       products: []
     };
+
   }
   // constructor(props) {
   // 	super(props)
@@ -34,10 +34,27 @@ class LoanItems extends Component {
   	fetch("http://localhost:5000/products")
   		.then(res => res.json())
   		.then(json => {
+
+        let products = []
+
+        json.map(item => {
+          let line = {
+            Id: item.ID,
+            Brand: brands.find(b => b.brandId === item.Brand).brandName,
+            Image: "",
+            MatchRating: "",
+            CPUrating: item.CPUrating,
+            RAM: item.RAM,
+            GPUrating: item.GPUrating
+
+          }
+          products.push(line)
+        })
+
   			this.setState({
-  				products: json
+  				products: products
   			})
-  		});
+      });
   }
 
   render() {
