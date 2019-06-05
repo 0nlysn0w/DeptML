@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 
 import { Box, Text, Image, Button, Grid } from "grommet";
 
-import products from "../helpers/products.json";
-
 import * as cookie from "../helpers/cookie.js";
 
 class LoanItems extends Component {
