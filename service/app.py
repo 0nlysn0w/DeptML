@@ -1,7 +1,7 @@
 from flask import request, url_for, jsonify
 from flask_api import FlaskAPI, status, exceptions
 import csv, json
-import pandas as pd
+# import pandas as pd
 from flask_cors import CORS, cross_origin
 
 
@@ -24,24 +24,12 @@ members = {
 }
 
 def products():
-    # with open('../resources/products.json', 'r') as theFile:
-    #     data = theFile.read()
-    #     return { data } 
     f = open('../resources/Dept_products3.csv', 'r' ) 
     reader = csv.DictReader( f, fieldnames = ( "ID","Brand","CPUrating","RAM","GPUrating"))  
     out = json.dumps( [ row for row in reader ] )  
-
-    # out['Brand'] = out['Brand'].map({1: 'HP', 2: 'Dell', 3: 'Apple', 4: 'Razer', 5: 'ASUS'})
-
-    print(out)
-
     response = json.loads(out) 
     return response
-    # print (out)n
 
-    # df = pd.read_csv('../resources/Dept_products3.csv')
-    # any operations on dataframe df
-    # return df.to_json('file.json')
    
 
 @app.route("/products", methods=['GET'])
