@@ -7,15 +7,15 @@ from sklearn.naive_bayes import GaussianNB, BernoulliNB, MultinomialNB
 import pickle
 
 # Importing dataset
-data = pd.read_csv("data/depthistory.csv")
+data = pd.read_csv("../resources/history.csv")
 
 # Convert categorical variable to numeric
 #data["Typecleaned"]=np.where(data["Type"]=="Laptop",0,1)
 # Cleaning dataset of NaN
 data=data[[
     #-----
-   # "PurchaseID"
-   "EmployeeID",
+    "PurchaseID",
+    "EmployeeID",
     "LoanItemID"
 ]].dropna(axis=0, how='any')
 
@@ -58,7 +58,7 @@ print("Number of mislabeled points out of a total {} points : {}, performance {:
 
 
 # Importing dataset2
-data2 = pd.read_csv("data/dataproduct.csv")
+data2 = pd.read_csv("../resources/products.csv")
 data2.rename(columns={'ID':'LoanItemID'}, inplace=True)
 
 # Importing dataset3
@@ -66,7 +66,7 @@ data2.rename(columns={'ID':'LoanItemID'}, inplace=True)
 #ata["Typecleaned"]=np.where(data["Type"]=="Laptop",0,1)
 
 #importing dataset3
-data3 = pd.read_csv("data/dataprofiel.csv")
+data3 = pd.read_csv("../resources/profiles.csv")
 data3.rename(columns={'Id':'LoanItemID'}, inplace=True)
 
 
