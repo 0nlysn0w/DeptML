@@ -1,3 +1,5 @@
 Flask
 Flask-Cors
 flask_api
+matplotlib
+sklearn
