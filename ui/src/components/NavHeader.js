@@ -1,9 +1,33 @@
 import React from 'react';
 
-const NavHeader = () => {
+import { Link } from "react-router-dom";
+
+import { Box, Text } from 'grommet';
+
+export const NavHeader = () => {
     return (
-        <p>NavHeader</p>
+        <Box
+            gridArea="header"
+            direction="row"
+            align="center"
+            justify="center"
+            pad={{ horizontal: "medium", vertical: "small" }}
+            background="dark-2"
+        >
+            <Link to="/">
+
+            <Text size="large">DeptML</Text>
+            </Link>
+
+            <Link to="/loanitems">
+                <Text size="large">Loan Items</Text>
+            </Link>
+            {/* For testing the UI */}
+            <Link to="/itemdescription">
+                <Text size="medium">description</Text>
+            </Link>
+
+            <Text>UserName</Text>
+        </Box>
     );
 }
-
-export default NavHeader;
