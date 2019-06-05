@@ -2,26 +2,26 @@ export const brands = [
     {
       brandId: "1",
       brandName: "Hp",
-      img:"",
+      img: "../images/hp.png",
     },
     {
       brandId: "2",
       brandName: "Dell",
-      img:""
+      img: "../images/dell.png"
     },
     {
       brandId: "3",
       brandName: "Apple",
-      img:"",
+      img: "../images/apple.png",
     },
     {
       brandId: "4",
       brandName: "Razer",
-      img:"",
+      img: "../images/razer.png",
     },
     {
       brandId: "5",
       brandName: "Asus",
-      img:"",
+      img: "../images/asus.png",
     }
   ];

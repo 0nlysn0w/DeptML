@@ -41,7 +41,7 @@ class LoanItems extends Component {
           let line = {
             Id: item.ID,
             Brand: brands.find(b => b.brandId === item.Brand).brandName,
-            Image: "",
+            Image: brands.find(b => b.brandId === item.Brand).img,
             MatchRating: "",
             CPUrating: item.CPUrating,
             RAM: item.RAM,
@@ -110,11 +110,11 @@ const Itemcard = ({ product }) => {
         <Image
           fit="cover"
           size="flex"
-          src="https://assets.razerzone.com/eeimages/products/26727/razer-blade-hero-laptop-v3.png"
+          src={product.Image}
         />
       </Box>
 
-      <Text size="flex">Brand no. {product.Brand}</Text>
+      <Text size="flex">{product.Brand}</Text>
       <Text size="xsmall">Match rating</Text>
       <Button
         label="Click"
