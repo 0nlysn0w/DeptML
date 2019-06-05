@@ -31,7 +31,7 @@ def products():
     reader = csv.DictReader( f, fieldnames = ( "ID","Brand","CPUrating","RAM","GPUrating"))  
     out = json.dumps( [ row for row in reader ] )  
 
-    out['Brand'] = out['Brand'].map({1: 'HP', 2: 'Dell', 3: 'Apple', 4: 'Razer', 5: 'ASUS'})
+    # out['Brand'] = out['Brand'].map({1: 'HP', 2: 'Dell', 3: 'Apple', 4: 'Razer', 5: 'ASUS'})
 
     print(out)
 
