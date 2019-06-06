@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 
 import { Box, Text, Image, Button, Grid } from 'grommet';
+import { Link } from "react-router-dom";
 
-import { brands } from '../helpers';
+import { mapProducts } from '../helpers';
 
 class LoanItems extends Component {
   constructor(props) {
@@ -31,29 +32,12 @@ class LoanItems extends Component {
   // }
 
   componentDidMount() {
-  	fetch("http://localhost:5000/products")
-  		.then(res => res.json())
-  		.then(json => {
-
-        let products = []
-
-        json.map(item => {
-          let line = {
-            Id: item.ID,
-            Brand: brands.find(b => b.brandId === item.Brand).brandName,
-            Image: brands.find(b => b.brandId === item.Brand).img,
-            MatchRating: "",
-            CPUrating: item.CPUrating,
-            RAM: item.RAM,
-            GPUrating: item.GPUrating
-
-          }
-          products.push(line)
+    fetch("http://localhost:5000/products")
+      .then(res => res.json())
+      .then(json => {
+        this.setState({
+          products: mapProducts(json)
         })
-
-  			this.setState({
-  				products: products
-  			})
       });
   }
 
@@ -116,11 +100,13 @@ const Itemcard = ({ product }) => {
 
       <Text size="flex">{product.Brand}</Text>
       <Text size="xsmall">Match rating</Text>
-      <Button
-        label="Click"
-        size="flex"
-        onClick={() => alert("Doesn't work yet")}
-      />
+      <Link to={'loanitems/' + product.Id}>
+        <Button
+          label="Click"
+          size="flex"
+        // onClick={() => alert("Doesn't work yet")}
+        />
+      </Link>
     </Box>
   );
 };

@@ -34,7 +34,7 @@ class App extends React.Component {
             <Route exact path={'/'} component={LoginPage}></Route>
             <Route exact path={'/loanitems'} component={LoanItems}></Route>
             {/* For testing the UI */}
-            <Route exact path={'/itemdescription'} component={ItemDescription}></Route>
+            <Route exact path={'/loanitems/:id'} component={ItemDescription}></Route>
 
           </Router>
         </MainGrid>
