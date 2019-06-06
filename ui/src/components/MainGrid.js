@@ -8,6 +8,7 @@ export const MainGrid = (props) => {
             fill
             rows={["auto", "flex"]}
             columns={["auto", "flex"]}
+            gap="small"
             areas={[
                 { name: 'header', start: [0, 0], end: [1, 0] },
                 { name: 'sidebar', start: [0, 1], end: [0, 1] },

@@ -22,11 +22,6 @@ export const NavHeader = () => {
             <Link to="/loanitems">
                 <Text size="large">Loan Items</Text>
             </Link>
-            {/* For testing the UI */}
-            <Link to="/itemdescription">
-                <Text size="medium">description</Text>
-            </Link>
-
             <Text>UserName</Text>
         </Box>
     );

@@ -33,21 +33,30 @@ class ItemDescription extends Component {
                 alignContent="center"
                 justify="center"
                 width="large"
-                pad={{ horizontal: "medium", vertical: "medium" }}
+                pad={{ horizontal: "xsmall", vertical: "xsmall" }}
                 background="dark-2"
+                animation="slideUp"
+                basis="xsmall"
+                gap="small"
             >
                 <Box
+                    fit="contain"
                     direction="column"
                     align="start"
                     alignSelf="center"
                     justify="center"
                     gap="small"
-                    pad={{ horizontal: "medium", vertical: "medium" }}
+                    pad={{ horizontal: "xsmall", vertical: "xsmall" }}
                     bacground="light-2"
                 >
-                    <Box>
+                    <Box
+                        width="large"
+                        height="650px"
+                        gap="small"
+                    >
                         <Image
-                            fit="cover"
+                            fit="contain"
+                            pad={{horizontal:"small", vertical:"small"}}
                             src={this.state.product.Image}
                         />
                     </Box>
