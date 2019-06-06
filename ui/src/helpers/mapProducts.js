@@ -3,6 +3,7 @@ import { brands } from './brandmap'
 export const mapProducts = (products) => {
     let mappedProducts = []
     products.map(item => {
+        console.log(item)
         let line = {
             Id: item.ID,
             Brand: brands.find(b => b.brandId === item.Brand).brandName,

@@ -9,17 +9,18 @@ class ItemDescription extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            product: {}
+            product: ''
         };
-
     }
 
     componentDidMount() {
-        fetch("http://localhost:5000/products")
+        let url = "http://localhost:5000/products/" + this.props.match.params.id
+        console.log(url)
+        fetch(url)
             .then(res => res.json())
             .then(json => {
                 this.setState({
-                    product: mapProducts(json).find(p => p.Id === this.props.match.params.id)
+                    product: mapProducts(json)[0]
                 })
             });
     }

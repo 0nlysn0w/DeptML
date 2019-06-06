@@ -1,0 +1,142 @@
+[
+  {
+    "ID": 1,
+    "Brand": 4,
+    "CPUrating": 1,
+    "RAM": 16,
+    "GPUrating": 5
+  },
+  {
+    "ID": 2,
+    "Brand": 2,
+    "CPUrating": 3,
+    "RAM": 4,
+    "GPUrating": 4
+  },
+  {
+    "ID": 3,
+    "Brand": 5,
+    "CPUrating": 3,
+    "RAM": 16,
+    "GPUrating": 1
+  },
+  {
+    "ID": 4,
+    "Brand": 5,
+    "CPUrating": 3,
+    "RAM": 8,
+    "GPUrating": 2
+  },
+  {
+    "ID": 5,
+    "Brand": 1,
+    "CPUrating": 5,
+    "RAM": 16,
+    "GPUrating": 4
+  },
+  {
+    "ID": 6,
+    "Brand": 2,
+    "CPUrating": 2,
+    "RAM": 16,
+    "GPUrating": 5
+  },
+  {
+    "ID": 7,
+    "Brand": 1,
+    "CPUrating": 4,
+    "RAM": 4,
+    "GPUrating": 5
+  },
+  {
+    "ID": 8,
+    "Brand": 5,
+    "CPUrating": 1,
+    "RAM": 16,
+    "GPUrating": 1
+  },
+  {
+    "ID": 9,
+    "Brand": 2,
+    "CPUrating": 5,
+    "RAM": 16,
+    "GPUrating": 4
+  },
+  {
+    "ID": 10,
+    "Brand": 4,
+    "CPUrating": 3,
+    "RAM": 8,
+    "GPUrating": 5
+  },
+  {
+    "ID": 11,
+    "Brand": 5,
+    "CPUrating": 5,
+    "RAM": 8,
+    "GPUrating": 5
+  },
+  {
+    "ID": 12,
+    "Brand": 5,
+    "CPUrating": 4,
+    "RAM": 8,
+    "GPUrating": 5
+  },
+  {
+    "ID": 13,
+    "Brand": 2,
+    "CPUrating": 3,
+    "RAM": 16,
+    "GPUrating": 1
+  },
+  {
+    "ID": 14,
+    "Brand": 3,
+    "CPUrating": 4,
+    "RAM": 16,
+    "GPUrating": 1
+  },
+  {
+    "ID": 15,
+    "Brand": 5,
+    "CPUrating": 4,
+    "RAM": 8,
+    "GPUrating": 3
+  },
+  {
+    "ID": 16,
+    "Brand": 2,
+    "CPUrating": 2,
+    "RAM": 16,
+    "GPUrating": 2
+  },
+  {
+    "ID": 17,
+    "Brand": 3,
+    "CPUrating": 3,
+    "RAM": 16,
+    "GPUrating": 2
+  },
+  {
+    "ID": 18,
+    "Brand": 5,
+    "CPUrating": 1,
+    "RAM": 4,
+    "GPUrating": 2
+  },
+  {
+    "ID": 19,
+    "Brand": 5,
+    "CPUrating": 3,
+    "RAM": 16,
+    "GPUrating": 4
+  },
+  {
+    "ID": 20,
+    "Brand": 5,
+    "CPUrating": 3,
+    "RAM": 16,
+    "GPUrating": 4
+  }
+]

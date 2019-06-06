@@ -38,7 +38,7 @@ class LoanItems extends Component {
         this.setState({
           products: mapProducts(json)
         })
-      });
+      })
   }
 
   render() {
