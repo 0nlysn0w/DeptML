@@ -66,10 +66,12 @@ class ItemDescription extends Component {
                         size="small"
                     > Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</Text>
                     <Text>Price:&#8364; 999</Text>
+                    <Link to={'/loanitems'}>
                     <Button
                         label="Back"
-                        onClick={() => alert('Doesn\'t work yet')}
+                        //onClick={() => alert('Doesn\'t work yet')}
                     />
+                    </Link>
                 </Box>
             </Box>
         );
