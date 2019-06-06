@@ -34,21 +34,30 @@ class ItemDescription extends Component {
                 alignContent="center"
                 justify="center"
                 width="large"
-                pad={{ horizontal: "medium", vertical: "medium" }}
+                pad={{ horizontal: "xsmall", vertical: "xsmall" }}
                 background="dark-2"
+                animation="slideUp"
+                basis="xsmall"
+                gap="small"
             >
                 <Box
+                    fit="contain"
                     direction="column"
                     align="start"
                     alignSelf="center"
                     justify="center"
                     gap="small"
-                    pad={{ horizontal: "medium", vertical: "medium" }}
+                    pad={{ horizontal: "xsmall", vertical: "xsmall" }}
                     bacground="light-2"
                 >
-                    <Box>
+                    <Box
+                        width="large"
+                        height="650px"
+                        gap="small"
+                    >
                         <Image
-                            fit="cover"
+                            fit="contain"
+                            pad={{horizontal:"small", vertical:"small"}}
                             src={this.state.product.Image}
                         />
                     </Box>
@@ -58,10 +67,12 @@ class ItemDescription extends Component {
                         size="small"
                     > Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</Text>
                     <Text>Price:&#8364; 999</Text>
+                    <Link to={'/loanitems'}>
                     <Button
                         label="Back"
-                        onClick={() => alert('Doesn\'t work yet')}
+                        //onClick={() => alert('Doesn\'t work yet')}
                     />
+                    </Link>
                 </Box>
             </Box>
         );
