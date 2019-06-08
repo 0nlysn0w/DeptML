@@ -7,12 +7,23 @@ from sklearn.naive_bayes import GaussianNB, BernoulliNB, MultinomialNB
 import pickle
 
 # Importing dataset
-data = pd.read_csv("../resources/history.csv")
+training_Data = pd.read_csv("../resources/trainingdata/Traininghistory_DONTUSE.csv")
+
+testing_Data = pd.read_csv("../resources/testdata/Testinghistory_DONTUSE.csv")
 
 # Convert categorical variable to numeric
 #data["Typecleaned"]=np.where(data["Type"]=="Laptop",0,1)
-# Cleaning dataset of NaN
-data=data[[
+
+# Cleaning training dataset of NaN
+training_Data_Clean = training_Data[[
+    #-----
+    "PurchaseID",
+    "EmployeeID",
+    "LoanItemID"
+]].dropna(axis=0, how='any')
+
+# Cleaning testing dataset of NaN
+testing_Data_Clean = testing_Data[[
     #-----
     "PurchaseID",
     "EmployeeID",
@@ -20,7 +31,7 @@ data=data[[
 ]].dropna(axis=0, how='any')
 
 # Split dataset in training and test datasets
-X_train, X_test = train_test_split(data, test_size=0.5, random_state=int(time.time()))
+#X_train, X_test = train_test_split(data, test_size=0.5, random_state=int(time.time()))
 
 # Instantiate the classifier
 gnb = GaussianNB()
@@ -39,17 +50,19 @@ used_features =[
 
 # Train classifier
 gnb.fit(
-    X_train[used_features].values,
-    X_train["LoanItemID"]
+    training_Data_Clean[used_features].values,
+    training_Data_Clean["LoanItemID"]
 )
-y_pred = gnb.predict(X_test[used_features])
+
+#prediction algorithm testing data
+item_Predictions = gnb.predict(testing_Data[used_features])
 
 # Print results
 print("Number of mislabeled points out of a total {} points : {}, performance {:05.2f}%"
       .format(
-          X_test.shape[0],
-          (X_test["LoanItemID"] != y_pred).sum(),
-          100*(1-(X_test["LoanItemID"] != y_pred).sum()/X_test.shape[0])
+          testing_Data_Clean.shape[0],
+          (testing_Data_Clean["LoanItemID"] != item_Predictions).sum(),
+          100*(1-(testing_Data_Clean["LoanItemID"] != item_Predictions).sum()/testing_Data_Clean.shape[0])
 ))
 
 
@@ -57,26 +70,29 @@ print("Number of mislabeled points out of a total {} points : {}, performance {:
 
 
 
-# Importing dataset2
-data2 = pd.read_csv("../resources/products.csv")
-data2.rename(columns={'ID':'LoanItemID'}, inplace=True)
+#- ??what are these datasets used for??
 
-# Importing dataset3
-# Convert categorical variable to numeric
-#ata["Typecleaned"]=np.where(data["Type"]=="Laptop",0,1)
+## Importing dataset2
+#data2 = pd.read_csv("../resources/products.csv")
+#data2.rename(columns={'ID':'LoanItemID'}, inplace=True)
 
-#importing dataset3
-data3 = pd.read_csv("../resources/profiles.csv")
-data3.rename(columns={'Id':'LoanItemID'}, inplace=True)
+## Importing dataset3
+## Convert categorical variable to numeric
+##ata["Typecleaned"]=np.where(data["Type"]=="Laptop",0,1)
+
+##importing dataset3
+#data3 = pd.read_csv("../resources/profiles.csv")
+#data3.rename(columns={'Id':'LoanItemID'}, inplace=True)
 
 
-testing = gnb.predict(data2[used_features])
+testing = gnb.predict(testing_Data_Clean[used_features])
+
+#??what test.pickle and wb and rb??
 file = open('test.pickle', 'wb')
 pickle.dump(testing,file)
 file.close()
 file = open('test.pickle' ,'rb')
 #openn = pickle.load(file)
-
 
 print(testing)
 
