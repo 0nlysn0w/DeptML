@@ -1,0 +1,3 @@
+INDEX($C$2:$C$600,ASELECTTUSSEN(1,RIJEN($C$2:$C$600)),1)
+
+A2&","&B2&","&C2&","&D2
