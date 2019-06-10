@@ -7,9 +7,9 @@ from sklearn.naive_bayes import GaussianNB, BernoulliNB, MultinomialNB
 import pickle
 
 # Importing dataset
-training_Data = pd.read_csv("../resources/trainingdata2/History_Function1_Training.csv")
+training_Data = pd.read_csv("../resources/trainingdata2/Training_Function5_#3.csv")
 
-testing_Data = pd.read_csv("../resources/testdata2/History_Function1_Testing.csv")
+testing_Data = pd.read_csv("../resources/testdata2/Testing_Function5_#3.csv")
 
 # Convert categorical variable to numeric
 #data["Typecleaned"]=np.where(data["Type"]=="Laptop",0,1)
