@@ -8,7 +8,7 @@ export const mapProducts = (products) => {
             Id: item.ID,
             Brand: brands.find(b => b.brandId === item.Brand).brandName,
             Image: brands.find(b => b.brandId === item.Brand).img,
-            MatchRating: "",
+            MatchRating: item.Rating,
             CPUrating: item.CPUrating,
             RAM: item.RAM,
             GPUrating: item.GPUrating
@@ -17,5 +17,7 @@ export const mapProducts = (products) => {
         mappedProducts.push(line)
     })
 
-    return mappedProducts
+    return mappedProducts.sort(function(a, b) {
+        return b.MatchRating - a.MatchRating
+    })
 }

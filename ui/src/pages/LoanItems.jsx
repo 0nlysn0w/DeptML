@@ -99,7 +99,7 @@ const Itemcard = ({ product }) => {
       </Box>
 
       <Text size="flex">{product.Brand}</Text>
-      <Text size="xsmall">Match rating</Text>
+      <Text size="xsmall">Match rating: {product.MatchRating}</Text>
       <Link to={'loanitems/' + product.Id}>
         <Button
           label="Click"

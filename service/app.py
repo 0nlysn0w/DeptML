@@ -30,7 +30,21 @@ def predict():
 def products():
     with open('../resources/products.json') as f:
         data = json.load(f)
-    return data
+
+    predictionarray = prediction()
+
+    keys = []
+    for key in predictionarray.keys():
+        keys.append(key)
+
+    filtered = []
+    for product in data:
+        for key in keys:
+            if key == product['ID']:
+                product['Rating'] = predictionarray[key]
+                filtered.append(product)
+
+    return filtered
 
 @app.route("/products", methods=['GET'])
 def product_list():

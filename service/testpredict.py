@@ -96,8 +96,6 @@ def prediction():
         occur = array.count(item)
         rating[item] = int(occur)
 
-    rating = sorted(rating.items(), key=operator.itemgetter(1), reverse=True)
-
     return rating
 
 
