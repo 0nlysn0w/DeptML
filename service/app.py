@@ -23,10 +23,6 @@ members = {
     4: 'Joost',
 }
 
-@app.route("/predict", methods=['GET'])
-def predict():
-    return prediction()
-
 def products():
     with open('../resources/products.json') as f:
         data = json.load(f)
