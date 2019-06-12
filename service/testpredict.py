@@ -5,6 +5,7 @@ import time
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import GaussianNB, BernoulliNB, MultinomialNB
 import pickle
+import operator
 
 # Importing dataset
 training_Data = pd.read_csv("../resources/trainingdata2/Training_Function5_#3.csv")
@@ -87,6 +88,19 @@ print("Number of mislabeled points out of a total {} points : {}, performance {:
 
 testing = gnb.predict(testing_Data_Clean[used_features])
 
+def prediction():
+    array = gnb.predict(testing_Data_Clean[used_features]).tolist()
+
+    rating = {}
+    for item in array:
+        occur = array.count(item)
+        rating[item] = int(occur)
+
+    rating = sorted(rating.items(), key=operator.itemgetter(1), reverse=True)
+
+    return rating
+
+
 #??what test.pickle and wb and rb??
 file = open('test.pickle', 'wb')
 pickle.dump(testing,file)
@@ -94,6 +108,8 @@ file.close()
 file = open('test.pickle' ,'rb')
 #openn = pickle.load(file)
 
-print(testing)
+prodlist = testing.tolist()
+
+print(prodlist)
 
 

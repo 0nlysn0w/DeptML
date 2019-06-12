@@ -3,7 +3,7 @@ from flask_api import FlaskAPI, status, exceptions
 import csv, json
 import pandas as pd
 from flask_cors import CORS, cross_origin
-
+from testpredict import prediction
 
 
 app = FlaskAPI(__name__)
@@ -22,6 +22,10 @@ members = {
     3: 'Lorenzo',
     4: 'Joost',
 }
+
+@app.route("/predict", methods=['GET'])
+def predict():
+    return prediction()
 
 def products():
     with open('../resources/products.json') as f:
