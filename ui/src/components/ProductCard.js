@@ -22,7 +22,7 @@ const ProductCard = ({ product }) => {
                 />
             </Box>
 
-            <Text size="flex">{product.Brand}</Text>
+            <Text size="flex">{product.Brand}: CPU {product.CPUrating}/5 - GPU {product.GPUrating}/5 - RAM {product.RAM}GB</Text>
             {product.MatchRating === undefined ? null :
                 <Text size="xsmall">Match rating: {product.MatchRating}</Text>
             }

@@ -26,7 +26,7 @@ class LoginPage extends Component {
     handleSubmit(loggedinUser) {
         this.props.handleFunctionChange(loggedinUser)
         cookie.set('username', this.state.loggedinUser)
-        history.push('/loanitems')
+        history.push('/recommendedlaptops')
     }
 
     render() {
