@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Link } from "react-router-dom";
+
 import {
     Box,
     Button,
@@ -13,13 +15,18 @@ export const Sidebar = () => {
             background="dark-3"
             width="small"
         >
-            {["First", "Second", "Third"].map(name => (
-                <Button key={name} href="#" hoverIndicator>
-                    <Box pad={{ horizontal: "medium", vertical: "small" }}>
-                        <Text>{name}</Text>
-                    </Box>
-                </Button>
-            ))}
+            <Button as={Link} to="/" hoverIndicator>
+                <Box pad={{ horizontal: "medium", vertical: "small" }}>
+                    <Text>User selection</Text>
+                </Box>
+            </Button>
+
+            <Button as={Link} to="/loanitems" hoverIndicator>
+                <Box pad={{ horizontal: "medium", vertical: "small" }}>
+                    <Text>Recommended items</Text>
+                </Box>
+            </Button>
+
         </Box>
     );
 }

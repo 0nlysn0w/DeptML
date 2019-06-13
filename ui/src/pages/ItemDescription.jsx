@@ -36,7 +36,6 @@ class ItemDescription extends Component {
                 width="large"
                 pad={{ horizontal: "xsmall", vertical: "xsmall" }}
                 background="dark-2"
-                animation="slideUp"
                 basis="xsmall"
                 gap="small"
             >
