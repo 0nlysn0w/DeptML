@@ -23,6 +23,12 @@ class LoginPage extends Component {
             })
     }
 
+    handleSubmit(loggedinUser) {
+        this.props.handleFunctionChange(loggedinUser)
+        cookie.set('username', this.state.loggedinUser)
+        history.push('/loanitems')
+    }
+
     render() {
         if (this.state.profiles === undefined) {
             return <div>Loading</div>
@@ -51,10 +57,7 @@ class LoginPage extends Component {
                         </Box>
                     ))}
                     {/* main */}
-                    <Button type="submit" primary label="Submit" onClick={() => {
-                        cookie.set('username', this.state.loggedinUser)
-                        history.push('/loanitems')
-                    }} />
+                    <Button type="submit" primary label="Submit" onClick={() => this.handleSubmit(this.state.loggedinUser)} />
                 </Form>
             </Box>
 

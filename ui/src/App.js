@@ -10,6 +10,13 @@ import ItemDescription from './pages/ItemDescription';
 import history from './helpers/history' 
 
 class App extends React.Component {
+  state = {
+    functiongroup: null
+  }
+
+  handleFunctionChange = (functiongroup) =>
+    this.setState({functiongroup})
+
   render() {
     const theme = {
       global: {
@@ -28,12 +35,12 @@ class App extends React.Component {
       <Grommet theme={theme} full>
         <MainGrid>
           <Router history={history}>
-            <NavHeader></NavHeader>
+            <NavHeader functiongroup={this.state.functiongroup}></NavHeader>
 
             {/* if logged in */}
             <Sidebar></Sidebar>
 
-            <Route exact path={'/'} component={LoginPage}></Route>
+            <Route exact path={'/'} component={() => <LoginPage handleFunctionChange={this.handleFunctionChange} />}></Route>
             <Route exact path={'/loanitems'} component={LoanItems}></Route>
             {/* For testing the UI */}
             <Route exact path={'/loanitems/:id'} component={ItemDescription}></Route>
