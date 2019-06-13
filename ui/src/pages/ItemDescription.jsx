@@ -60,18 +60,11 @@ class ItemDescription extends Component {
                             src={this.state.product.Image}
                         />
                     </Box>
-                    <Text>{this.state.product.Brand}</Text>
-                    <Text>Item Description:</Text>
+                    <Text>{this.state.product.Brand}: CPU {this.state.product.CPUrating}/5 - GPU {this.state.product.GPUrating}/5 - RAM {this.state.product.RAM}GB</Text>
+                    <Text>Laptop description:</Text>
                     <Text
                         size="small"
                     > Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</Text>
-                    <Text>Price:&#8364; 999</Text>
-                    <Link to={'/loanitems'}>
-                    <Button
-                        label="Back"
-                        //onClick={() => alert('Doesn\'t work yet')}
-                    />
-                    </Link>
                 </Box>
             </Box>
         );
