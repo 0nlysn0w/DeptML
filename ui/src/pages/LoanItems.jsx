@@ -4,12 +4,14 @@ import { Box, Text, Image, Button, Grid } from 'grommet';
 import { Link } from "react-router-dom";
 
 import { mapProducts } from '../helpers';
+import * as cookie from '../helpers/cookie.js'
 
 class LoanItems extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      products: []
+      products: [],
+      username: JSON.parse(cookie.get('username'))
     };
 
   }

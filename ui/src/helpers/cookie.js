@@ -13,6 +13,15 @@ export function get(cname) {
     return undefined;
 }
 
+export function getUser() {
+    let user = get('username')
+    if (user === undefined) {
+        set('username', '[]')
+    } else {
+        return user
+    }
+}
+
 export function set(cname, cvalue) {
     const d = new Date();
     d.setTime(d.getTime() + (350 * 24 * 60 * 60 * 1000));

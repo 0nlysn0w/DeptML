@@ -7,6 +7,8 @@ import LoanItems from './pages/LoanItems';
 import LoginPage from './pages/LoginPage';
 import ItemDescription from './pages/ItemDescription';
 
+import * as cookie from './helpers/cookie'
+
 class App extends React.Component {
   render() {
     const theme = {

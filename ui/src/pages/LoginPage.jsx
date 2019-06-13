@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import { Box, RadioButton, Form, Button, FormField, Text } from 'grommet';
 
-import * as cookie from '../helpers/cookie.js'
+import * as cookie from '../helpers/cookie'
 
 class LoginPage extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            username: JSON.parse(cookie.get('username'))
+        }
+    }
     state = {}
     render() {
         const { selected } = this.state;
