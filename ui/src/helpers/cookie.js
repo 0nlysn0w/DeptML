@@ -17,6 +17,8 @@ export function getUser() {
     let user = get('username')
     if (user === undefined) {
         set('username', '[]')
+    } else if(JSON.parse(user).length === 0) {
+        return false
     } else {
         return user
     }

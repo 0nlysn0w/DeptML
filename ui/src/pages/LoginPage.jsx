@@ -7,7 +7,7 @@ class LoginPage extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            username: JSON.parse(cookie.get('username'))
+            username: JSON.parse(cookie.getUser())
         }
     }
     state = {}

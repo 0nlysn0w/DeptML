@@ -11,7 +11,7 @@ class LoanItems extends Component {
     super(props);
     this.state = {
       products: [],
-      username: JSON.parse(cookie.get('username'))
+      username: JSON.parse(cookie.getUser())
     };
 
   }
@@ -34,7 +34,7 @@ class LoanItems extends Component {
   // }
 
   componentDidMount() {
-    fetch("http://localhost:5000/products")
+    fetch("http://localhost:5000/recommendations/3")
       .then(res => res.json())
       .then(json => {
         this.setState({
@@ -54,28 +54,23 @@ class LoanItems extends Component {
         background="light-2"
         responsive={true}
       >
-        {/* ItemCard */}
-        {/* {products.map(product => (
-					<Itemcard></Itemcard>
-				))}
-
-				<Text>Please click <Link to="/">here</Link> to select a user</Text> */}
-
-        <Grid
-          columns={{
-            count: 3,
-            size: "small"
-          }}
-          rows={{
-            count: 3,
-            size: "flex"
-          }}
-          gap="small"
-        >
-          {this.state.products.map(product => (
-            <Itemcard product={product} />
-          ))}
-        </Grid>
+        {/* {this.state.username === false ? "please go back and select your function" : */}
+          <Grid
+            columns={{
+              count: 3,
+              size: "small"
+            }}
+            rows={{
+              count: 3,
+              size: "flex"
+            }}
+            gap="small"
+          >
+            {this.state.products.map(product => (
+              <Itemcard product={product} />
+            ))}
+          </Grid>
+        {/* } */}
       </Box>
     );
   }

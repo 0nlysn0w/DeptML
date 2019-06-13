@@ -3,7 +3,7 @@ from flask_api import FlaskAPI, status, exceptions
 import csv, json
 import pandas as pd
 from flask_cors import CORS, cross_origin
-from testpredict import prediction
+from testpredict import Naive_Bayes
 
 
 app = FlaskAPI(__name__)
@@ -23,34 +23,43 @@ members = {
     4: 'Joost',
 }
 
-def products():
+def loadfile():
     with open('../resources/products.json') as f:
-        data = json.load(f)
+        products = json.load(f)
+        return products
 
-    predictionarray = prediction()
+def recommendedproducts(functiongroupid):
+    recommendationarray = Naive_Bayes(functiongroupid)
+
+    products = loadfile()
 
     keys = []
-    for key in predictionarray.keys():
+    for key in recommendationarray.keys():
         keys.append(key)
 
     filtered = []
-    for product in data:
+    for product in products:
         for key in keys:
             if key == product['ID']:
-                product['Rating'] = predictionarray[key]
+                product['Rating'] = recommendationarray[key]
                 filtered.append(product)
 
     return filtered
 
+@app.route("/recommendations/<int:functiongroupid>", methods=['GET'])
+def recommendations(functiongroupid):
+    return recommendedproducts(functiongroupid)
+
 @app.route("/products", methods=['GET'])
-def product_list():
-    return products()
+def all_products():
+    return loadfile()
 
 @app.route("/products/<int:productid>", methods=['GET'])
 def product_detail(productid):
-    filtered = list(filter(lambda x: x['ID'] == productid, products()))
+    filtered = list(filter(lambda x: x['ID'] == productid, loadfile()))
     return filtered
-   
+
+# All below is not mission critical
 def member_repr(key):
     return {
         'name': members[key]

@@ -94,29 +94,25 @@ def Naive_Bayes(FunctionGroup):
     #data3.rename(columns={'Id':'LoanItemID'}, inplace=True)
 
 
-    testing = gnb.predict(testing_Data_Clean[used_features])
+    recommendationarray = gnb.predict(testing_Data_Clean[used_features]).tolist()
 
-    def prediction():
-        array = gnb.predict(testing_Data_Clean[used_features]).tolist()
 
-        rating = {}
-        for item in array:
-            occur = array.count(item)
-            rating[item] = int(occur)
+    rating = {}
+    for item in recommendationarray:
+        occur = recommendationarray.count(item)
+        rating[item] = int(occur)
 
-        return rating
+    return rating
 
 
     #??what test.pickle and wb and rb??
     file = open('test.pickle', 'wb')
-    pickle.dump(testing,file)
+    pickle.dump(recommendationarray,file)
     file.close()
     file = open('test.pickle' ,'rb')
     #openn = pickle.load(file)
 
-    prodlist = testing.tolist()
-
-    print(prodlist)
+    print(recommendationarray)
 
 
 Naive_Bayes(2)
