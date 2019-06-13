@@ -46,6 +46,12 @@ def recommendedproducts(functiongroupid):
 
     return filtered
 
+@app.route("/profiles")
+def profiles():
+    with open('../resources/profiles.json') as f:
+        profiles = json.load(f)
+        return profiles
+
 @app.route("/recommendations/<int:functiongroupid>", methods=['GET'])
 def recommendations(functiongroupid):
     return recommendedproducts(functiongroupid)

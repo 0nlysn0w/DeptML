@@ -2,17 +2,31 @@ import React, { Component } from 'react';
 import { Box, RadioButton, Form, Button, FormField, Text } from 'grommet';
 
 import * as cookie from '../helpers/cookie'
+import history from '../helpers/history'
 
 class LoginPage extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            username: JSON.parse(cookie.getUser())
+            loggedinUser: JSON.parse(cookie.getUser())
         }
+        console.log(JSON.parse(cookie.getUser()), this.state.loggedinUser)
     }
-    state = {}
+
+    componentDidMount() {
+        fetch("http://localhost:5000/profiles")
+            .then(res => res.json())
+            .then(json => {
+                this.setState({
+                    profiles: json
+                })
+            })
+    }
+
     render() {
-        const { selected } = this.state;
+        if (this.state.profiles === undefined) {
+            return <div>Loading</div>
+        }
 
         return (
             <Box
@@ -24,24 +38,23 @@ class LoginPage extends Component {
 
                 <Form>
                     <Text>Please select a user</Text>
-                    {[
-                        "Kermit",
-                        "Bert",
-                        "Ernie",
-                        "Grover",
-                        "Oscar"
-                    ].map(label => (
-                        <Box key={label} margin={{ vertical: 'small' }} align="start">
+                    {this.state.profiles.map(profile => (
+                        <Box key={profile.Id} margin={{ vertical: 'small' }} align="start">
                             <RadioButton
                                 name='prop'
-                                checked={selected === label}
-                                label={label}
-                                onChange={() => this.setState({ selected: label })}
+                                checked={this.state.loggedinUser['Id'] === profile['Id']}
+                                label={profile.Functiongroup}
+                                onChange={() => {
+                                    this.setState({ loggedinUser: profile })}
+                            }
                             />
                         </Box>
                     ))}
                     {/* main */}
-                    <Button type="submit" primary label="Submit" />
+                    <Button type="submit" primary label="Submit" onClick={() => {
+                        cookie.set('username', this.state.loggedinUser)
+                        history.push('/loanitems')
+                    }} />
                 </Form>
             </Box>
 

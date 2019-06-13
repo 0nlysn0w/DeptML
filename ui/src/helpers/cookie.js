@@ -17,6 +17,8 @@ export function getUser() {
     let user = get('username')
     if (user === undefined) {
         set('username', '[]')
+        let user = get('username')
+        return user
     } else if(JSON.parse(user).length === 0) {
         return false
     } else {
@@ -28,6 +30,6 @@ export function set(cname, cvalue) {
     const d = new Date();
     d.setTime(d.getTime() + (350 * 24 * 60 * 60 * 1000));
     const expires = "expires=" + d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    document.cookie = cname + "=" + JSON.stringify(cvalue) + ";" + expires + ";path=/";
     return true;
 }

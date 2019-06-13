@@ -1,0 +1,22 @@
+[
+    {
+      "Id": 1,
+      "Functiongroup": "Development"
+    },
+    {
+      "Id": 2,
+      "Functiongroup": "Design"
+    },
+    {
+      "Id": 3,
+      "Functiongroup": "Management"
+    },
+    {
+      "Id": 4,
+      "Functiongroup": "Marketing"
+    },
+    {
+      "Id": 5,
+      "Functiongroup": "Finance"
+    }
+  ]

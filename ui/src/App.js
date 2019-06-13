@@ -1,11 +1,13 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Router, Route } from 'react-router-dom';
 
 import { Grommet } from 'grommet';
 import { MainGrid, NavHeader, Sidebar } from './components';
 import LoanItems from './pages/LoanItems';
 import LoginPage from './pages/LoginPage';
 import ItemDescription from './pages/ItemDescription';
+
+import history from './helpers/history' 
 
 class App extends React.Component {
   render() {
@@ -25,7 +27,7 @@ class App extends React.Component {
     return (
       <Grommet theme={theme} full>
         <MainGrid>
-          <Router>
+          <Router history={history}>
             <NavHeader></NavHeader>
 
             {/* if logged in */}

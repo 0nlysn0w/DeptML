@@ -11,36 +11,21 @@ class LoanItems extends Component {
     super(props);
     this.state = {
       products: [],
-      username: JSON.parse(cookie.getUser())
+      loggedinUser: JSON.parse(cookie.getUser())
     };
 
   }
-  // constructor(props) {
-  // 	super(props)
-  // 	this.state = {
-  // 		username: JSON.parse(cookie.get('username'))
-  // 	}
-
-  // 	// username = JSON.parse(cookie.get('username'));
-
-  // 	cookie.set('username', '[]')
-  // }
-
-  // function ActionLink(){
-  // 	function handleClick(e){
-  // 		e.preventDefault();
-  // 		console.log('The link is clickable.');
-  // 	}
-  // }
 
   componentDidMount() {
-    fetch("http://localhost:5000/recommendations/3")
-      .then(res => res.json())
-      .then(json => {
-        this.setState({
-          products: mapProducts(json)
+    if (this.state.loggedinUser['Id'] !== undefined) {
+      fetch("http://localhost:5000/recommendations/" + this.state.loggedinUser['Id'])
+        .then(res => res.json())
+        .then(json => {
+          this.setState({
+            products: mapProducts(json)
+          })
         })
-      })
+    }
   }
 
   render() {
@@ -54,7 +39,7 @@ class LoanItems extends Component {
         background="light-2"
         responsive={true}
       >
-        {/* {this.state.username === false ? "please go back and select your function" : */}
+        {this.state.loggedinUser['Id'] === undefined? "please go back and select your function" :
           <Grid
             columns={{
               count: 3,
@@ -70,7 +55,7 @@ class LoanItems extends Component {
               <Itemcard product={product} />
             ))}
           </Grid>
-        {/* } */}
+        }
       </Box>
     );
   }
@@ -101,7 +86,6 @@ const Itemcard = ({ product }) => {
         <Button
           label="Click"
           size="flex"
-        // onClick={() => alert("Doesn't work yet")}
         />
       </Link>
     </Box>
