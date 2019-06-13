@@ -21,9 +21,15 @@ export const Sidebar = () => {
                 </Box>
             </Button>
 
-            <Button as={Link} to="/loanitems" hoverIndicator>
+            <Button as={Link} to="/recommendedlaptops" hoverIndicator>
                 <Box pad={{ horizontal: "medium", vertical: "small" }}>
-                    <Text>Recommended items</Text>
+                    <Text>Recommended laptops</Text>
+                </Box>
+            </Button>
+
+            <Button as={Link} to="/products" hoverIndicator>
+                <Box pad={{ horizontal: "medium", vertical: "small" }}>
+                    <Text>All laptops</Text>
                 </Box>
             </Button>
 

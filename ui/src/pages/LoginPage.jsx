@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Box, RadioButton, Form, Button, FormField, Text } from 'grommet';
+import { Box, RadioButton, Form, Button, Text } from 'grommet';
 
 import * as cookie from '../helpers/cookie'
 import history from '../helpers/history'

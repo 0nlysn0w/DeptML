@@ -6,7 +6,6 @@ import * as cookie from '../helpers/cookie'
 
 export const NavHeader = () => {
     const loggedinUser = JSON.parse(cookie.getUser())
-    console.log(loggedinUser)
     return (
         <Box
             gridArea="header"
@@ -17,7 +16,7 @@ export const NavHeader = () => {
             background="dark-2"
         >
             {loggedinUser === '[]' ? null :
-                <Text>You are now viewing the {loggedinUser['Functiongroup']} recommendations</Text>
+                <Text>You are now viewing the group {loggedinUser['Functiongroup']}</Text>
             }
         </Box>
     );

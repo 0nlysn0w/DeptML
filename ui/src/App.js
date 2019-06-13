@@ -3,9 +3,10 @@ import { Router, Route } from 'react-router-dom';
 
 import { Grommet } from 'grommet';
 import { MainGrid, NavHeader, Sidebar } from './components';
-import LoanItems from './pages/LoanItems';
+import RecommendedLaptops from './pages/RecommendedLaptops';
 import LoginPage from './pages/LoginPage';
 import ItemDescription from './pages/ItemDescription';
+import AllLaptops from './pages/AllLaptops'
 
 import history from './helpers/history' 
 
@@ -41,9 +42,9 @@ class App extends React.Component {
             <Sidebar></Sidebar>
 
             <Route exact path={'/'} component={() => <LoginPage handleFunctionChange={this.handleFunctionChange} />}></Route>
-            <Route exact path={'/loanitems'} component={LoanItems}></Route>
-            {/* For testing the UI */}
-            <Route exact path={'/loanitems/:id'} component={ItemDescription}></Route>
+            <Route exact path={'/recommendedlaptops'} component={RecommendedLaptops}></Route>
+            <Route exact path={'/products'} component={AllLaptops}></Route>
+            <Route exact path={'/products/:id'} component={ItemDescription}></Route>
 
           </Router>
         </MainGrid>
