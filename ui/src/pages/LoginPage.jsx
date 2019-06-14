@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Box, RadioButton, Form, Button, Text } from 'grommet';
+import { Box, RadioButton, Form, Button, Text, Heading } from 'grommet';
 
 import * as cookie from '../helpers/cookie'
 import history from '../helpers/history'
@@ -41,9 +41,9 @@ class LoginPage extends Component {
                 align='center'
                 justify='center'
             >
+                <Heading level="3">Please select a function group</Heading>
 
                 <Form>
-                    <Text>Please select a user</Text>
                     {this.state.profiles.map(profile => (
                         <Box key={profile.Id} margin={{ vertical: 'small' }} align="start">
                             <RadioButton
@@ -51,8 +51,9 @@ class LoginPage extends Component {
                                 checked={this.state.loggedinUser['Id'] === profile['Id']}
                                 label={profile.Functiongroup}
                                 onChange={() => {
-                                    this.setState({ loggedinUser: profile })}
-                            }
+                                    this.setState({ loggedinUser: profile })
+                                }
+                                }
                             />
                         </Box>
                     ))}

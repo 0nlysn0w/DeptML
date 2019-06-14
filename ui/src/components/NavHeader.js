@@ -16,7 +16,7 @@ export const NavHeader = () => {
             background="dark-2"
         >
             {loggedinUser === '[]' ? null :
-                <Text>You are now viewing the group {loggedinUser['Functiongroup']}</Text>
+                <Text>You are now logged in as function group: {loggedinUser['Functiongroup']}</Text>
             }
         </Box>
     );
