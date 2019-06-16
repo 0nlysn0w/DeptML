@@ -7,9 +7,17 @@ import * as cookie from '../helpers/cookie'
 import ProductCard from './ProductCard'
 
 class ProductGrid extends React.Component {
-    render() {
+    constructor(props) {
+        super(props)
+        this.message = null
+        this.loggedinUser = JSON.parse(cookie.getUser())['Id']
+        this.props.page === 'All' ? this.message = 'Loading' : 
+        this.props.page === 'Recommended' && this.loggedinUser === undefined ? this.message = 'Please go back and select your function' : 
+        this.props.page === 'Recommended' && this.loggedinUser !== undefined ? this.message = 'Loading' : 
+        this.message = String.fromCharCode(160)
+    }
 
-        const loggedinUser = JSON.parse(cookie.getUser())
+    render() {
         return (
             <Box
                 direction="column"
@@ -20,7 +28,7 @@ class ProductGrid extends React.Component {
                 background="light-2"
                 responsive={true}
             >
-                {loggedinUser['Id'] === undefined ? "please go back and select your function" :
+                {this.props.products.length === 0 ? <div>{this.message}</div> :
                     <Grid
                         columns={{
                             count: 3,
@@ -38,7 +46,6 @@ class ProductGrid extends React.Component {
                     </Grid>
                 }
             </Box>
-
         )
     }
 }

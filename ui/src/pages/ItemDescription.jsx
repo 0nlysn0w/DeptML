@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
 
-import { Box, Text, Image, Button } from 'grommet';
+import { Box, Text, Image } from 'grommet';
 
 import { mapProducts } from '../helpers'
 

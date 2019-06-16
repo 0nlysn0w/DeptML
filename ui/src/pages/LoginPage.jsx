@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Box, RadioButton, Form, Button, Text, Heading } from 'grommet';
+import { Box, RadioButton, Form, Button, Heading } from 'grommet';
 
 import * as cookie from '../helpers/cookie'
 import history from '../helpers/history'
@@ -10,7 +10,7 @@ class LoginPage extends Component {
         this.state = {
             loggedinUser: JSON.parse(cookie.getUser())
         }
-        console.log(JSON.parse(cookie.getUser()), this.state.loggedinUser)
+        // console.log(JSON.parse(cookie.getUser()), this.state.loggedinUser)
     }
 
     componentDidMount() {

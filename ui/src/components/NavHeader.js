@@ -15,7 +15,7 @@ export const NavHeader = () => {
             pad={{ horizontal: "medium", vertical: "small" }}
             background="dark-2"
         >
-            {loggedinUser === '[]' ? null :
+            {loggedinUser === '[]' ? String.fromCharCode(160) :
                 <Text>You are now logged in as function group: {loggedinUser['Functiongroup']}</Text>
             }
         </Box>

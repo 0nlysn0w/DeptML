@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 
-import { Box, Text, Image, Button, Grid } from 'grommet';
-import { Link } from "react-router-dom";
-
 import { mapProducts } from '../helpers';
 import * as cookie from '../helpers/cookie.js'
 import ProductGrid from '../components/ProductGrid'
@@ -29,7 +26,7 @@ class AllLaptops extends Component {
 
     render() {
         return (
-            <ProductGrid products={this.state.products} />
+            <ProductGrid products={this.state.products} page="All" />
         );
     }
 }
