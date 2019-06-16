@@ -38,7 +38,6 @@ class App extends React.Component {
           <Router history={history}>
             <NavHeader functiongroup={this.state.functiongroup}></NavHeader>
 
-            {/* if logged in */}
             <Sidebar></Sidebar>
 
             <Route exact path={'/'} component={() => <LoginPage handleFunctionChange={this.handleFunctionChange} />}></Route>

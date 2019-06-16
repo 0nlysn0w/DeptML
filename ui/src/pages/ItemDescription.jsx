@@ -14,7 +14,6 @@ class ItemDescription extends Component {
 
     componentDidMount() {
         let url = "http://localhost:5000/products/" + this.props.match.params.id
-        console.log(url)
         fetch(url)
             .then(res => res.json())
             .then(json => {

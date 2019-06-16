@@ -10,7 +10,6 @@ class LoginPage extends Component {
         this.state = {
             loggedinUser: JSON.parse(cookie.getUser())
         }
-        // console.log(JSON.parse(cookie.getUser()), this.state.loggedinUser)
     }
 
     componentDidMount() {
@@ -42,7 +41,6 @@ class LoginPage extends Component {
                 justify='center'
             >
                 <Heading level="3">Please select a function group</Heading>
-
                 <Form>
                     {this.state.profiles.map(profile => (
                         <Box key={profile.Id} margin={{ vertical: 'small' }} align="start">
@@ -61,7 +59,6 @@ class LoginPage extends Component {
                     <Button type="submit" primary label="Submit" onClick={() => this.handleSubmit(this.state.loggedinUser)} />
                 </Form>
             </Box>
-
         )
     }
 }

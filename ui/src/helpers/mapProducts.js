@@ -14,6 +14,7 @@ export const mapProducts = (products) => {
 
         }
         mappedProducts.push(line)
+        return mappedProducts
     })
 
     return mappedProducts.sort(function(a, b) {

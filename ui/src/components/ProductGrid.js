@@ -34,14 +34,10 @@ class ProductGrid extends React.Component {
                             count: 3,
                             size: "small"
                         }}
-                        rows={{
-                            count: 3,
-                            size: "flex"
-                        }}
                         gap="small"
                     >
                         {this.props.products.map(product => (
-                            <ProductCard product={product} />
+                            <ProductCard product={product} key={product.Id} />
                         ))}
                     </Grid>
                 }
